@@ -4,9 +4,9 @@
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null: false, primary_key: true|
-|name|varchar(64)|null: false|
-|email|varchar(256)|null: false, unique: true|
-|password|varchar(256)|null: false|
+|name|string|null: false|
+|email|string|null: false, unique: true|
+|password|string|null: false|
 |created_at|timestamp|null: false|
 |updated_at|timestamp|null: false|
 
@@ -18,7 +18,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null: false, primary_key: true|
-|name|varchar(128)|null: false|
+|name|string|null: false|
 |created_at|timestamp|null: false|
 |updated_at|timestamp|null: false|
 
@@ -36,8 +36,8 @@
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null: false, primary_key: true|
-|text|varchar(1024)||
-|image|varchar(1024)||
+|text|string||
+|image|string||
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 |created_at|timestamp|null: false|
