@@ -1,24 +1,48 @@
 # README
+## DB設計
+### userテーブル
+|Column|Type|Options|
+|------|----|-------|
+|id|integer|null: false, primary_key: true|
+|name|varchar(64)|null: false|
+|email|varchar(256)|null: false, unique: true|
+|password|varchar(256)|null: false|
+|created_at|timestamp|null: false|
+|updated_at|timestamp|null: false|
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+#### Association
+- has_many :messages
+- has_many :groups through :members
 
-Things you may want to cover:
+### groupテーブル
+|Column|Type|Options|
+|------|----|-------|
+|id|integer|null: false, primary_key: true|
+|name|varchar(128)|null: false|
+|created_at|timestamp|null: false|
+|updated_at|timestamp|null: false|
 
-* Ruby version
+#### Association
+- has_many :messages
+- has_many :users through :members
 
-* System dependencies
+### membersテーブル
+|Column|Type|Options|
+|------|----|-------|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
 
-* Configuration
+### messageテーブル
+|Column|Type|Options|
+|------|----|-------|
+|id|integer|null: false, primary_key: true|
+|text|varchar(1024)||
+|image|varchar(1024)||
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
+|created_at|timestamp|null: false|
+|updated_at|timestamp|null: false|
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+#### Association
+- belongs_to :group
+- belongs_to :user
