@@ -13,6 +13,7 @@
 #### Association
 - has_many :messages
 - has_many :groups through :members
+- has_many :members
 
 ### groupテーブル
 |Column|Type|Options|
@@ -25,12 +26,18 @@
 #### Association
 - has_many :messages
 - has_many :users through :members
+- has_many :members
 
 ### membersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
+
+#### Association
+- belongs_to :user
+- belongs_to : group
+
 
 ### messageテーブル
 |Column|Type|Options|
