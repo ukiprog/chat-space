@@ -1,36 +1,32 @@
 %header.header
 
-#menu
-  #account UKI
-  %a#account-edit(href="")
-  %a#account-config(href="")
-  #groups
-    %ul.groups
-      %li.group 
-        %p.title test
-        %p.latest_group hello 
-      %li.group 
-        %p.title test
-        %p.latest_group hello 
-      %li.group 
-        %p.title test
-        %p.latest_group hello 
+#side-menu
+  #account
+    %p#account__name
+    %a#account__edit(href="")
+    %a#account__config(href="")
+
+  #group
+    %ul.group__list
+      %li.group
+        %p.group__title test
+        %p.group__latest-talk hello 
 
 #talk
-  #talk-header
-    #group-name test
-    #member Member : uki2
-    %a#group-edit(href="") Edit
+  #talk__header
+    #talk_header__group test
+    #talk_header__member Member : uki2
+    %a#talk_header__edit(href="") Edit
   
-  #talk-board
+  #talk__board
     .talk 
-      #p.name UKI
-      #p.send_at 2019-05-15 21:00
-      #p.message hello
+      #p.talk__sender UKI
+      #p.talk__send_at 2019-05-15 21:00
+      #p.talk__text hello
 
-  %from.talk-edit
-    %input.text
-    %input.image
-    %button.submit(type="submit")Send
+  %from.talk__from
+    %input.talk__form__text
+    %input.talk__form__image
+    %button.talk__form__submit(type="submit")Send
 
   
