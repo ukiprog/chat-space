@@ -1,2 +1,36 @@
-%h1 Messages#index
-%p Find me in app/views/messages/index.html.haml
+%header.header
+
+#menu
+  #account UKI
+  %a#account-edit(href="")
+  %a#account-config(href="")
+  #groups
+    %ul.groups
+      %li.group 
+        %p.title test
+        %p.latest_group hello 
+      %li.group 
+        %p.title test
+        %p.latest_group hello 
+      %li.group 
+        %p.title test
+        %p.latest_group hello 
+
+#talk
+  #talk-header
+    #group-name test
+    #member Member : uki2
+    %a#group-edit(href="") Edit
+  
+  #talk-board
+    .talk 
+      #p.name UKI
+      #p.send_at 2019-05-15 21:00
+      #p.message hello
+
+  %from.talk-edit
+    %input.text
+    %input.image
+    %button.submit(type="submit")Send
+
+  
