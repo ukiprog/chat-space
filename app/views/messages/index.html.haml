@@ -1,32 +1,33 @@
-%header.header
+%header#header Success
 
-#side-menu
-  #account
-    %p#account__name
-    %a#account__edit(href="")
-    %a#account__config(href="")
+#contents
+  #side-menu
+    #account
+      %p#account__name
+      %a#account__edit(href="")
+      %a#account__config(href="")
 
-  #group
-    %ul.group__list
-      %li.group
-        %p.group__title test
-        %p.group__latest-talk hello 
+    #group
+      %ul.group__list
+        %li.group
+          %p.group__title test
+          %p.group__latest-talk hello 
 
-#talk
-  #talk__header
-    #talk_header__group test
-    #talk_header__member Member : uki2
-    %a#talk_header__edit(href="") Edit
-  
-  #talk__board
-    .talk 
-      #p.talk__sender UKI
-      #p.talk__send_at 2019-05-15 21:00
-      #p.talk__text hello
+  #talk
+    #talk__header
+      #talk_header__group test
+      #talk_header__member Member : uki2
+      %a#talk_header__edit(href="") Edit
+    
+    #talk__board
+      .talk 
+        #p.talk__sender UKI
+        #p.talk__send_at 2019-05-15 21:00
+        #p.talk__text hello
 
-  %from.talk__from
-    %input.talk__form__text
-    %input.talk__form__image
-    %button.talk__form__submit(type="submit")Send
+    %from.talk__from
+      %input.talk__form__text
+      %input.talk__form__image
+      %button.talk__form__submit(type="submit")Send
 
   
