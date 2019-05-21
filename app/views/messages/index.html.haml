@@ -3,27 +3,26 @@
 #contents
   #side-menu
     #account
-      %p#account__name
+      %p#account__name UKI
       %a#account__edit(href="")
       %a#account__config(href="")
 
-    #group
-      %ul.group__list
-        %li.group
-          %p.group__title test
-          %p.group__latest-talk hello 
+    #group__list
+      %a.group__list__elem(href="")
+        %p.group__list__elem__title test
+        %p.group__list__elem__latest-talk hello
 
   #talk
     #talk__header
-      #talk_header__group test
-      #talk_header__member Member : uki2
-      %a#talk_header__edit(href="") Edit
+      #talk__header__group test
+      #talk__header__member Member : uki2
+      %a#talk__header__edit(href="") Edit
     
     #talk__board
       .talk 
-        #p.talk__sender UKI
-        #p.talk__send_at 2019-05-15 21:00
-        #p.talk__text hello
+        %p.talk__sender UKI
+        %p.talk__send_at 2019-05-15 21:00
+        %p.talk__text hello
 
     %from.talk__from
       %input.talk__form__text
