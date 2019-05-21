@@ -14,8 +14,9 @@
 
   #talk
     #talk__header
-      #talk__header__group test
-      #talk__header__member Member : uki2
+      #talk__header__info
+        #talk__header__info__group test
+        #talk__header__info__member Member : uki2
       %a#talk__header__edit(href="") Edit
     
     #talk__board
@@ -24,8 +25,8 @@
         %p.talk__send_at 2019-05-15 21:00
         %p.talk__text hello
 
-    %from.talk__from
-      %input.talk__form__text
+    %from#talk__form
+      %input.talk__form__text(placeholder="type text")
       %input.talk__form__image
       %button.talk__form__submit(type="submit")Send
 
