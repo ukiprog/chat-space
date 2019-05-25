@@ -64,12 +64,12 @@
 
   #talk {
     float: right;
-    width: calc($talkWid);
+    width: $talkWid;
     height: 100%;
     background-color: #fafafa;
     #talk__header {
       @include headerFix();
-      width: calc($talkWid - 80px);
+      width: calc(100% - 300px - 80px);
       height: $headerHig;
       padding: 0 40px;
       border-bottom: #eeeeee solid;
