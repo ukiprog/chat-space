@@ -1,13 +1,14 @@
 @import "./reset";
+@import "./variable";
 @import "./mixin";
 @import "font-awesome";
 
 #header {
-  width: 100%;
-  background: #38AEF0;
-  text-align: center;
-  color: #fff;
   display: none;
+  width: 100%;
+  background-color: #38AEF0;
+  color: #fff;
+  text-align: center;
 }
 
 #contents {
@@ -15,24 +16,23 @@
   height: 100%;
 
   #side-menu {
-    width: 300px;
+    width: $sideMenuWid;
     height: 100%;
     float: left;
     color: #fff;
     font-weight: bold;
     #account {
-      position: fixed;
-      top: 0;
+      @include headerFix();
+      width: $sideMenuWid;
+      height: $headerHig;
       background-color: #253141;
-      height: 96px;
-      width: 300px;
       #account__name {
-        @include account_structure();
+        @include accountStructure();
         float: left;
         font-size: 16px;
       }
       #account__icon {
-        @include account_structure();
+        @include accountStructure();
         float: right;
       }
       .icon-white {
@@ -40,11 +40,12 @@
         color: #fff;
       }
     }
+
     #group__list {
-      width: 300px;
+      width: $sideMenuWid;
+      height: calc(100% - $headerHig);
       overflow: auto;
-      margin-top: 96px;
-      height: calc(100% - 96px);
+      margin-top: $headerHig;
       background-color: #2f3e51;
       .group__list__elem {
         padding: 20px;
@@ -52,7 +53,7 @@
         text-decoration: none;
         color: #fff;
         .group__list__elem__title {
-              font-size: 15px;
+          font-size: 15px;
         }
         .group__list__elem__latest-talk {
           font-size: 11px;
@@ -62,19 +63,18 @@
   }
 
   #talk {
-    width: calc(100% - 300px);
+    width: calc($talkWid);
     height: 100%;
     float: right;
     background-color: #fafafa;
     #talk__header {
-      width: calc(100% - 300px - 80px);
-      height: 96px;
+      @include headerFix();
+      width: calc($talkWid - 80px);
+      height: $headerHig;
       padding: 0 40px;
       border-bottom: #eeeeee solid;
       border-bottom-width: 1px; 
       background-color: #fff;
-      position: fixed;
-      top: 0;
       #talk__header__info {
         float: left;
         #talk__header__info__group {
@@ -101,9 +101,9 @@
     }
     #talk__board {
       width: calc(100% - 80px);
-      height: calc(100% - 96px - 105px - 46px);
+      height: calc(100% - $headerHig - 105px - 46px);
       overflow: auto;
-      margin-top: 96px;
+      margin-top: $headerHig;
       padding: 0 40px;
       padding-top: 46px;
       .talk {
@@ -128,43 +128,38 @@
       }
     }
     #talk__form {
+      @include footerFix();
       display: block;
       background-color: #dfdfdf;
       padding: 25px 40px;
       color: #434A54;
       font-size: 16px;
-      position: fixed;
-      bottom: 0;
       width: calc(100% - 40 px);
       position: relative;
       .talk__form__text {
-        line-height: 50px;
-        padding: 0 10px;
         width: calc(100% - 100px);
+        padding: 0 10px;
+        line-height: 50px;
       }
       .talk__form__image-label {
+        padding: 0 10px;
         position: absolute;
         right: 125px;
-        /*
-        display: inline-block;
-        background-color: #fff;
-        */
         line-height: 50px;
-        padding: 0 10px;
         .talk__form__image-label__image {
           display: none;
         }
       }
       .talk__form__submit {
+        display: inline-block;
+        padding: 0 20px;
+        background-color: #38AEF0;
+        margin-left: 15px;
         position: absolute;
         right: 40px;
-        display: inline-block;
         text-decoration: none;
-        padding: 0 20px;
-        margin-left: 15px;
         line-height: 50px;
         color: #fff;
-        background-color: #38AEF0;
       }
     }
   }
