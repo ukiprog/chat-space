@@ -1,4 +1,5 @@
 @import "./reset";
+@import "./mixin";
 @import "font-awesome";
 
 #header {
@@ -6,6 +7,7 @@
   background: #38AEF0;
   text-align: center;
   color: #fff;
+  display: none;
 }
 
 #contents {
@@ -19,15 +21,30 @@
     color: #fff;
     font-weight: bold;
     #account {
+      position: fixed;
+      top: 0;
       background-color: #253141;
+      height: 96px;
+      width: 300px;
       #account__name {
-        padding: 0 20px;
-        line-height: 96px;
+        @include account_structure();
+        float: left;
         font-size: 16px;
+      }
+      #account__icon {
+        @include account_structure();
+        float: right;
+      }
+      .icon-white {
+        text-decoration: none;
+        color: #fff;
       }
     }
     #group__list {
-      height: 100%;
+      width: 300px;
+      overflow: auto;
+      margin-top: 96px;
+      height: calc(100% - 96px);
       background-color: #2f3e51;
       .group__list__elem {
         padding: 20px;
@@ -50,13 +67,16 @@
     float: right;
     background-color: #fafafa;
     #talk__header {
+      width: calc(100% - 300px - 80px);
       height: 96px;
       padding: 0 40px;
       border-bottom: #eeeeee solid;
       border-bottom-width: 1px; 
       background-color: #fff;
+      position: fixed;
+      top: 0;
       #talk__header__info {
-          float: left;
+        float: left;
         #talk__header__info__group {
           margin-top: 35px;
           margin-bottom: 15px;
@@ -80,6 +100,10 @@
       }
     }
     #talk__board {
+      width: calc(100% - 80px);
+      height: calc(100% - 96px - 105px - 46px);
+      overflow: auto;
+      margin-top: 96px;
       padding: 0 40px;
       padding-top: 46px;
       .talk {
@@ -111,12 +135,29 @@
       font-size: 16px;
       position: fixed;
       bottom: 0;
-      width: 100%;
+      width: calc(100% - 40 px);
+      position: relative;
       .talk__form__text {
         line-height: 50px;
         padding: 0 10px;
+        width: calc(100% - 100px);
+      }
+      .talk__form__image-label {
+        position: absolute;
+        right: 125px;
+        /*
+        display: inline-block;
+        background-color: #fff;
+        */
+        line-height: 50px;
+        padding: 0 10px;
+        .talk__form__image-label__image {
+          display: none;
+        }
       }
       .talk__form__submit {
+        position: absolute;
+        right: 40px;
         display: inline-block;
         text-decoration: none;
         padding: 0 20px;

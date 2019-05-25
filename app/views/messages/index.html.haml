@@ -4,10 +4,38 @@
   #side-menu
     #account
       %p#account__name UKI
-      %a#account__edit.fa.fa-edit(href="")
-      %a#account__config.fa.fa-cog(href="")
+      %p#account__icon
+        %a#account__edit.fa.fa-edit.icon-white(href="")
+        %a#account__config.fa.fa-cog.icon-white(href="")
 
     #group__list
+      %a.group__list__elem(href="")
+        %p.group__list__elem__title test
+        %p.group__list__elem__latest-talk hello
+      %a.group__list__elem(href="")
+        %p.group__list__elem__title test
+        %p.group__list__elem__latest-talk hello
+      %a.group__list__elem(href="")
+        %p.group__list__elem__title test
+        %p.group__list__elem__latest-talk hello
+      %a.group__list__elem(href="")
+        %p.group__list__elem__title test
+        %p.group__list__elem__latest-talk hello
+      %a.group__list__elem(href="")
+        %p.group__list__elem__title test
+        %p.group__list__elem__latest-talk hello
+      %a.group__list__elem(href="")
+        %p.group__list__elem__title test
+        %p.group__list__elem__latest-talk hello
+      %a.group__list__elem(href="")
+        %p.group__list__elem__title test
+        %p.group__list__elem__latest-talk hello
+      %a.group__list__elem(href="")
+        %p.group__list__elem__title test
+        %p.group__list__elem__latest-talk hello
+      %a.group__list__elem(href="")
+        %p.group__list__elem__title test
+        %p.group__list__elem__latest-talk hello
       %a.group__list__elem(href="")
         %p.group__list__elem__title test
         %p.group__list__elem__latest-talk hello
@@ -24,10 +52,38 @@
         %p.talk__sender UKI
         %p.talk__send_at 2019-05-15 21:00
         %p.talk__text hello
+      .talk 
+        %p.talk__sender UKI
+        %p.talk__send_at 2019-05-15 21:00
+        %p.talk__text hello
+      .talk 
+        %p.talk__sender UKI
+        %p.talk__send_at 2019-05-15 21:00
+        %p.talk__text hello
+      .talk 
+        %p.talk__sender UKI
+        %p.talk__send_at 2019-05-15 21:00
+        %p.talk__text hello
+      .talk 
+        %p.talk__sender UKI
+        %p.talk__send_at 2019-05-15 21:00
+        %p.talk__text hello
+      .talk 
+        %p.talk__sender UKI
+        %p.talk__send_at 2019-05-15 21:00
+        %p.talk__text hello
+      .talk 
+        %p.talk__sender UKI
+        %p.talk__send_at 2019-05-15 21:00
+        %p.talk__text hello
+      .talk 
+        %p.talk__sender UKI
+        %p.talk__send_at 2019-05-15 21:00
+        %p.talk__text hello
 
     %from#talk__form
       %input.talk__form__text(placeholder="type text")
-      %label.talk__form__image-label{for: "upload-icon"}
+      %label.talk__form__image-label
         %i.fa.fa-picture-o
         %input.talk__form__image-label__image(type="file")
       %button.talk__form__submit(type="submit")Send
