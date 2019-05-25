@@ -4,8 +4,8 @@
   #side-menu
     #account
       %p#account__name UKI
-      %a#account__edit(href="")
-      %a#account__config(href="")
+      %a#account__edit.fa.fa-edit(href="")
+      %a#account__config.fa.fa-cog(href="")
 
     #group__list
       %a.group__list__elem(href="")
@@ -27,7 +27,9 @@
 
     %from#talk__form
       %input.talk__form__text(placeholder="type text")
-      %input.talk__form__image
+      %label.talk__form__image-label{for: "upload-icon"}
+        %i.fa.fa-picture-o
+        %input.talk__form__image-label__image(type="file")
       %button.talk__form__submit(type="submit")Send
 
   
