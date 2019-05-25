@@ -44,7 +44,7 @@
     #group__list {
       overflow: auto;
       width: $sideMenuWid;
-      height: calc(100% - $headerHig);
+      height: calc(100% - 96px);
       margin-top: $headerHig;
       background-color: #2f3e51;
       .group__list__elem {
@@ -102,7 +102,7 @@
     #talk__board {
       overflow: auto;
       width: calc(100% - 80px);
-      height: calc(100% - $headerHig - 105px - 46px);
+      height: calc(100% - 96px - 105px - 46px);
       margin-top: $headerHig;
       padding: 0 40px;
       padding-top: 46px;
