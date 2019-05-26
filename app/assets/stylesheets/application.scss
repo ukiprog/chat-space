@@ -6,8 +6,8 @@
 #header {
   display: none;
   width: 100%;
-  background-color: #38AEF0;
-  color: #fff;
+  background-color: $lightBlue;
+  color: white;
   text-align: center;
 }
 
@@ -19,13 +19,13 @@
     float: left;
     width: $sideMenuWid;
     height: 100%;
-    color: #fff;
+    color: white;
     font-weight: bold;
     #account {
       @include headerFix();
       width: $sideMenuWid;
       height: $headerHig;
-      background-color: #253141;
+      background-color: $darkBlueInpuct;
       #account__name {
         @include accountStructure();
         float: left;
@@ -36,7 +36,7 @@
         float: right;
       }
       .icon-white {
-        color: #fff;
+        color: white;
         text-decoration: none;
       }
     }
@@ -46,11 +46,11 @@
       width: $sideMenuWid;
       height: calc(100% - 96px);
       margin-top: $headerHig;
-      background-color: #2f3e51;
+      background-color: $darkBlue;
       .group__list__elem {
         display: block;
         padding: 20px;
-        color: #fff;
+        color: white;
         text-decoration: none;
         .group__list__elem__title {
           font-size: 15px;
@@ -66,7 +66,7 @@
     float: right;
     width: $talkWid;
     height: 100%;
-    background-color: #fafafa;
+    background-color: $talkWhite;
     #talk__header {
       @include headerFix();
       width: calc(100% - 300px - 80px);
@@ -74,7 +74,7 @@
       padding: 0 40px;
       border-bottom: #eeeeee solid;
       border-bottom-width: 1px; 
-      background-color: #fff;
+      background-color: white;
       #talk__header__info {
         float: left;
         #talk__header__info__group {
@@ -84,7 +84,7 @@
           font-size: 20px;
         }
         #talk__header__info__member {
-          color: #999999;
+          color: $textGray;
           font-size: 12px;
         }
       }
@@ -92,10 +92,10 @@
         float: right;
         margin-top: 28px;
         padding: 0 20px;
-        border: #38AEF0 solid;
+        border: $lightBlue solid;
         border-width: 1px; 
         line-height: 40px;
-        color: #38AEF0;
+        color: $lightBlue;
         text-decoration: none;
       }
     }
@@ -108,7 +108,7 @@
       padding-top: 46px;
       .talk {
         padding-bottom: 40px;
-        color: #434A54;
+        color: $textBlack;
         .talk__sender {
           float: left;
           margin-right: 10px; 
@@ -118,7 +118,7 @@
         }
         .talk__send_at {
           float: left;
-          color: #999999;
+          color: $textGray;
           font-size: 12px;
         }
         .talk__text {
@@ -133,8 +133,8 @@
       position: relative;
       width: calc(100% - 40 px);
       padding: 25px 40px;
-      background-color: #dfdfdf;
-      color: #434A54;
+      background-color: $formGray;
+      color: $textBlack;
       font-size: 16px;
       .talk__form__text {
         width: calc(100% - 100px);
@@ -156,9 +156,9 @@
         right: 40px;
         margin-left: 15px;
         padding: 0 20px;
-        background-color: #38AEF0;
+        background-color: $lightBlue;
         line-height: 50px;
-        color: #fff;
+        color: white;
         text-decoration: none;
       }
     }
