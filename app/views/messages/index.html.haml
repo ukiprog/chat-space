@@ -27,10 +27,10 @@
         %p.talk__text hello
 
     %from#talk__form
-      %input.talk__form__text(placeholder="type text")
+      %input.talk__form__text{ :placeholder => "type text"}
       %label.talk__form__image-label
         %i.fa.fa-picture-o
-        %input.talk__form__image-label__image(type="file")
-      %button.talk__form__submit(type="submit")Send
+        %input.talk__form__image-label__image{ :type => "file"}
+      %button.talk__form__submit{ :type => "submit"}Send
 
   
