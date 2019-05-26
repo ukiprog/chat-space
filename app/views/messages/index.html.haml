@@ -1,32 +1,32 @@
-%header#header Success
+%header.header Success
 
-#contents
-  #side-menu
-    #account
-      %p#account__name UKI
-      %p#account__icon
-        %a#account__edit.fa.fa-edit.icon-white{ :href => ""}
-        %a#account__config.fa.fa-cog.icon-white{ :href => ""}
+.contents
+  .side-menu
+    .account
+      %p.account__name UKI
+      %p.account__icon
+        %a.account__edit.fa.fa-edit.icon-white{ :href => ""}
+        %a.account__config.fa.fa-cog.icon-white{ :href => ""}
 
-    #group__list
+    .group__list
       %a.group__list__elem{ :href => ""}
         %p.group__list__elem__title test
         %p.group__list__elem__latest-talk hello
 
-  #talk
-    #talk__header
-      #talk__header__info
-        #talk__header__info__group test
-        #talk__header__info__member Member : uki2
-      %a#talk__header__edit{ :href => ""} Edit
+  .talk
+    .talk__header
+      .talk__header__info
+        .talk__header__info__group test
+        .talk__header__info__member Member : uki2
+      %a.talk__header__edit{ :href => ""} Edit
     
-    #talk__board
+    .talk__board
       .talk 
         %p.talk__sender UKI
         %p.talk__send_at 2019-05-15 21:00
         %p.talk__text hello
 
-    %from#talk__form
+    %from.talk__form
       %input.talk__form__text(placeholder="type text")
       %label.talk__form__image-label
         %i.fa.fa-picture-o
