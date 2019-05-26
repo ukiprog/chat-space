@@ -5,11 +5,11 @@
     #account
       %p#account__name UKI
       %p#account__icon
-        %a#account__edit.fa.fa-edit.icon-white{ :href => ""}
-        %a#account__config.fa.fa-cog.icon-white{ :href => ""}
+        = link_to "", "", class: "fa fa-edit icon-white"
+        = link_to "", "", class: "fa fa-cog icon-white"
 
     #group__list
-      %a.group__list__elem{ :href => ""}
+      -# = link_to "", "", class: "group__list__elem" do
         %p.group__list__elem__title test
         %p.group__list__elem__latest-talk hello
 
@@ -18,7 +18,7 @@
       #talk__header__info
         #talk__header__info__group test
         #talk__header__info__member Member : uki2
-      %a#talk__header__edit{ :href => ""} Edit
+      = link_to "Edit", "", id: "talk__header__edit"
     
     #talk__board
       .talk 
