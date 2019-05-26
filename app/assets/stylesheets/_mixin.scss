@@ -1,0 +1,14 @@
+@mixin accountStructure() {
+  padding: 0 20px;
+  line-height: 96px;
+}
+
+@mixin headerFix() {
+  position: fixed;
+  top: 0;
+}
+
+@mixin footerFix() {
+  position: fixed;
+  bottom: 0;
+}
