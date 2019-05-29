@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get '/users/edit' => 'users#edit'
-  post '/users/update' => 'users#update'
+  patch '/users/update' => 'users#update'
   devise_for :users
   root 'messages#index'
 

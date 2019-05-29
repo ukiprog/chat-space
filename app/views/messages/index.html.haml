@@ -3,9 +3,10 @@
 .contents
   .side-menu
     .account
-      %p.account__name UKI
+      %p.account__name 
+        = current_user.name
       %p.account__icon
-        = link_to "", "", class: "fa fa-edit icon-white"
+        = link_to "", "/users/edit", class: "fa fa-edit icon-white"
         = link_to "", "", class: "fa fa-cog icon-white"
 
     .group__list
