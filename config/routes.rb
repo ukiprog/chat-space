@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   get '/users/edit' => 'users#edit'
   patch '/users/update' => 'users#update'
+
+  resources :groups, only: [:new, :create, :edit, :update]
+  
   devise_for :users
   root 'messages#index'
 
