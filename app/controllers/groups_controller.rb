@@ -1,15 +1,23 @@
 class GroupsController < ApplicationController
 
-  class new
+  def new
   end
 
-  class create
+  def create
+    Group.create(group_params)
   end
 
-  class edit
+  def edit
+    grpup = Group.find(params[:id])
   end
 
-  class update
+  def update
+    group = Group.find(params[:id])
+    group.update(group_params)
   end
 
+  private
+  def group_params
+    params.permit(:name)
+  end
 end
