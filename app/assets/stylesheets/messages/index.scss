@@ -9,7 +9,6 @@
     color: white;
     font-weight: bold;
     .account {
-      @include headerFix();
       width: $sideMenuWid;
       height: $headerHig;
       background-color: $darkBlueInpuct;
@@ -29,10 +28,9 @@
     }
 
     .group__list {
-      overflow: auto;
+      overflow: scroll;
       width: $sideMenuWid;
       height: calc(100% - 96px);
-      margin-top: $headerHig;
       background-color: $darkBlue;
       .group__list__elem {
         display: block;
@@ -55,8 +53,7 @@
     height: 100%;
     background-color: $talkWhite;
     .talk__header {
-      @include headerFix();
-      width: calc(100% - 300px - 80px);
+      width: calc(100% - 80px);
       height: $headerHig;
       padding: 0 40px;
       border-bottom: #eeeeee solid;
@@ -87,10 +84,9 @@
       }
     }
     .talk__board {
-      overflow: auto;
+      overflow: scroll;
       width: calc(100% - 80px);
       height: calc(100% - 96px - 105px - 46px);
-      margin-top: $headerHig;
       padding: 0 40px;
       padding-top: 46px;
       .talk {
