@@ -3,5 +3,5 @@ class Group < ApplicationRecord
   has_many :members
 
   validates :name, presence: true
-  validates :name, uniquences: true
+  validates :name, uniqueness: true
 end
