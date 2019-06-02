@@ -1,0 +1,44 @@
+.side-menu {
+  float: left;
+  width: $sideMenuWid;
+  height: 100%;
+  color: white;
+  font-weight: bold;
+  .account {
+    width: $sideMenuWid;
+    height: $headerHig;
+    background-color: $darkBlueInpuct;
+    .account__name {
+      @include accountStructure();
+      float: left;
+      font-size: 16px;
+    }
+    .account__icon {
+      @include accountStructure();
+      float: right;
+    }
+    .icon-white {
+      color: white;
+      text-decoration: none;
+    }
+  }
+
+  .group__list {
+    overflow: scroll;
+    width: $sideMenuWid;
+    height: calc(100% - 96px);
+    background-color: $darkBlue;
+    .group__list__elem {
+      display: block;
+      padding: 20px;
+      color: white;
+      text-decoration: none;
+      .group__list__elem__title {
+        font-size: 15px;
+      }
+      .group__list__elem__latest-talk {
+        font-size: 11px;
+      }
+    }
+  }
+}

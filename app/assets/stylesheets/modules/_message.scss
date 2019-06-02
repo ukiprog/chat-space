@@ -1,0 +1,99 @@
+.talks {
+  float: right;
+  width: $talkWid;
+  height: 100%;
+  background-color: $talkWhite;
+  .talk__header {
+    width: calc(100% - 80px);
+    height: $headerHig;
+    padding: 0 40px;
+    border-bottom: #eeeeee solid;
+    border-bottom-width: 1px; 
+    background-color: white;
+    .talk__header__info {
+      float: left;
+      .talk__header__info__group {
+        margin-top: 35px;
+        margin-bottom: 15px;
+        color: #333333;
+        font-size: 20px;
+      }
+      .talk__header__info__member {
+        color: $textGray;
+        font-size: 12px;
+      }
+    }
+    .talk__header__edit {
+      float: right;
+      margin-top: 28px;
+      padding: 0 20px;
+      border: $lightBlue solid;
+      border-width: 1px; 
+      line-height: 40px;
+      color: $lightBlue;
+      text-decoration: none;
+    }
+  }
+  .talk__board {
+    overflow: scroll;
+    width: calc(100% - 80px);
+    height: calc(100% - 96px - 105px - 46px);
+    padding: 0 40px;
+    padding-top: 46px;
+    .talk {
+      padding-bottom: 40px;
+      color: $textBlack;
+      .talk__sender {
+        float: left;
+        margin-right: 10px; 
+        margin-bottom: 10px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .talk__send_at {
+        float: left;
+        color: $textGray;
+        font-size: 12px;
+      }
+      .talk__text {
+        clear: both;
+        font-size: 14px;
+      }
+    }
+  }
+  .talk__form {
+    display: block;
+    @include footerFix();
+    position: relative;
+    width: calc(100% - 40 px);
+    padding: 25px 40px;
+    background-color: $formGray;
+    color: $textBlack;
+    font-size: 16px;
+    .talk__form__text {
+      width: calc(100% - 100px);
+      padding: 0 10px;
+      line-height: 50px;
+    }
+    .talk__form__image-label {
+      position: absolute;
+      right: 125px;
+      padding: 0 10px;
+      line-height: 50px;
+      .talk__form__image-label__image {
+        display: none;
+      }
+    }
+    .talk__form__submit {
+      display: inline-block;
+      position: absolute;
+      right: 40px;
+      margin-left: 15px;
+      padding: 0 20px;
+      background-color: $lightBlue;
+      line-height: 50px;
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
