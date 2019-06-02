@@ -10,4 +10,11 @@
     - groups.each do |group|
       = link_to "/groups/#{group.id}/messages", class: "group__list__elem" do
         %p.group__list__elem__title= group.name 
-        %p.group__list__elem__latest-talk まだメッセージがありません 
+        - latest = group.messages.order(created_at: "DESC").limit(1) 
+        - if latest.length > 0
+          - if latest[0].image.length > 0
+            %p.group__list__elem__latest-talk 画像が投稿されています 
+          - else
+            %p.group__list__elem__latest-talk= latest[0].text
+        - else
+          %p.group__list__elem__latest-talk まだメッセージがありません 

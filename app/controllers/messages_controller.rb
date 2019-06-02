@@ -2,9 +2,8 @@ class MessagesController < ApplicationController
   before_action :get_group
 
   def index
-    @groups = current_user.groups
+    set_index()
     @message = Message.new
-    @messages = @group.messages.includes(:user)
   end
 
   def create
@@ -12,7 +11,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to group_messages_path(@group)
     else
-      @messages = @group.messages.includes(:user)
+      set_index()
       flash.now[:alert] = 'メッセージを入力してください。'
       render :index
     end
@@ -25,5 +24,16 @@ class MessagesController < ApplicationController
 
   def get_group
     @group = Group.find(params[:group_id])
+  end
+
+  def set_index
+    @groups = current_user.groups
+    @messages = @group.messages.includes(:user)
+
+    temp = []
+    @group.users.each do |u|
+      temp << u.name
+    end
+    @members = temp.join(' ')
   end
 end
