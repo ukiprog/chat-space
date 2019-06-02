@@ -1,17 +1,5 @@
 .contents
-  .side-menu
-    .account
-      %p.account__name 
-        = current_user.name
-      %p.account__icon
-        = link_to "", "/groups/new", class: "fa fa-edit icon-white"
-        = link_to "", "/users/edit", class: "fa fa-cog icon-white"
-
-    .group__list
-      - @groups.each do |group|
-        = link_to "/messages/#{group.id}", class: "group__list__elem" do
-          %p.group__list__elem__title= group.name 
-          %p.group__list__elem__latest-talk まだメッセージがありません 
+  = render partial: "/layouts/side_menu", locals: { groups: @groups }
 
   .talks
     .talk__header
@@ -26,7 +14,7 @@
         %p.talk__send_at 2019-05-15 21:00
         %p.talk__text hello
 
-    %from.talk__form
+    %form.talk__form
       %input.talk__form__text{ :placeholder => "type text"}
       %label.talk__form__image-label
         %i.fa.fa-picture-o
