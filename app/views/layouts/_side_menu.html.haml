@@ -8,6 +8,6 @@
 
   .group__list
     - groups.each do |group|
-      = link_to "/messages/#{group.id}", class: "group__list__elem" do
+      = link_to "/groups/#{group.id}/messages", class: "group__list__elem" do
         %p.group__list__elem__title= group.name 
         %p.group__list__elem__latest-talk まだメッセージがありません 
