@@ -1,36 +1,27 @@
 .contents
-  .side-menu
-    .account
-      %p.account__name 
-        = current_user.name
-      %p.account__icon
-        = link_to "", "/groups/new", class: "fa fa-edit icon-white"
-        = link_to "", "/users/edit", class: "fa fa-cog icon-white"
-
-    .group__list
-      - @groups.each do |group|
-        = link_to "/messages/#{group.id}", class: "group__list__elem" do
-          %p.group__list__elem__title= group.name 
-          %p.group__list__elem__latest-talk まだメッセージがありません 
+  = render partial: "/layouts/side_menu", locals: { groups: @groups }
 
   .talks
     .talk__header
       .talk__header__info
-        .talk__header__info__group test
-        .talk__header__info__member Member : uki2
-      = link_to "Edit", "groups/3/edit", class: "talk__header__edit"
+        .talk__header__info__group= @group.name
+        .talk__header__info__member= "Member : #{@members}"
+      = link_to "Edit", "groups/#{@group.id}/edit", class: "talk__header__edit"
     
     .talk__board
-      .talk 
-        %p.talk__sender UKI
-        %p.talk__send_at 2019-05-15 21:00
-        %p.talk__text hello
+      - @messages.each do |message|
+        .talk 
+          %p.talk__sender= message.user.name
+          %p.talk__send_at= message.created_at.in_time_zone("Tokyo").strftime("%Y/%m/%d(%a) %H:%M:%S")
+          - if message.image.length > 0
+            %p.talk__text
+              = image_tag message.image, height: "150"
+          - else
+            %p.talk__text= message.text
 
-    %from.talk__form
-      %input.talk__form__text{ :placeholder => "type text"}
-      %label.talk__form__image-label
+    = form_for [@group, @message], :url => {:action => 'create'} do |f|
+      = f.text_field :text, class: "talk__form__text", placeholder: "type text"
+      = f.label :image, class: "talk__form__image-label" do
         %i.fa.fa-picture-o
-        %input.talk__form__image-label__image{ :type => "file"}
-      %button.talk__form__submit{ :type => "submit"}Send
-
-  
+        = f.file_field :image, class: "talk__form__image-label__image"
+      = f.submit "Send", class: "talk__form__submit"    

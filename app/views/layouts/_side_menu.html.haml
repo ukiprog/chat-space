@@ -1,0 +1,17 @@
+.side-menu
+  .account
+    %p.account__name 
+      = current_user.name
+    %p.account__icon
+      = link_to "", "/groups/new", class: "fa fa-edit icon-white"
+      = link_to "", "/users/edit", class: "fa fa-cog icon-white"
+
+  .group__list
+    - groups.each do |group|
+      = link_to "/groups/#{group.id}/messages", class: "group__list__elem" do
+        %p.group__list__elem__title= group.name 
+        - latest = group.messages.last
+        - if latest.present? 
+          %p.group__list__elem__latest-talk= latest.image.length > 0 ? "画像が投稿されています" : latest.text
+        - else
+          %p.group__list__elem__latest-talk まだメッセージがありません 

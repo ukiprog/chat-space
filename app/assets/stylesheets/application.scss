@@ -3,7 +3,8 @@
 @import "./mixin";
 @import "font-awesome";
 
-@import "./messages/index";
+/* 部分テンプレートの読み込み */
+@import "./modules/index";
 @import "./modules/user";
 @import "./modules/flash";
-@import "./modules/group.scss";
+@import "./modules/group";
