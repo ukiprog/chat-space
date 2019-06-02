@@ -14,9 +14,9 @@
         %p.talk__send_at 2019-05-15 21:00
         %p.talk__text hello
 
-    = form_for @message, :url => {:action => 'create'} do |f|
+    = form_for [@group, @message], :url => {:action => 'create'} do |f|
       = f.text_field :text, class: "talk__form__text", placeholder: "type text"
-      %label.talk__form__image-label
+      = f.label :image, class: "talk__form__image-label" do
         %i.fa.fa-picture-o
         = f.file_field :image, class: "talk__form__image-label__image"
       = f.submit "Send", class: "talk__form__submit"    
