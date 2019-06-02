@@ -61,7 +61,7 @@
       }
     }
   }
-  .talk__form {
+  #new_message {
     display: block;
     @include footerFix();
     position: relative;
@@ -80,14 +80,13 @@
       right: 125px;
       padding: 0 10px;
       line-height: 50px;
-      .talk__form__image-label__image {
-        display: none;
-      }
+    }
+    .talk__form__image-label__image {
+      display: none;
     }
     .talk__form__submit {
       display: inline-block;
       position: absolute;
-      right: 40px;
       margin-left: 15px;
       padding: 0 20px;
       background-color: $lightBlue;

@@ -14,11 +14,9 @@
         %p.talk__send_at 2019-05-15 21:00
         %p.talk__text hello
 
-    %form.talk__form
-      %input.talk__form__text{ :placeholder => "type text"}
+    = form_for @message, :url => {:action => 'create'} do |f|
+      = f.text_field :text, class: "talk__form__text", placeholder: "type text"
       %label.talk__form__image-label
         %i.fa.fa-picture-o
-        %input.talk__form__image-label__image{ :type => "file"}
-      %button.talk__form__submit{ :type => "submit"}Send
-
-  
+        = f.file_field :image, class: "talk__form__image-label__image"
+      = f.submit "Send", class: "talk__form__submit"    
