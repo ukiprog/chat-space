@@ -1,16 +1,23 @@
 $(function(){
-  function buildHTML(message){
-    var text = `<p class="taalk__text">${message.text}</p>`
-    var image = `
-        <p class="taalk__text">
-          <img height="150" src="${messge.image}" alt="">
+  $('.talk__board').animate({ scrollTop: $('.talk__board').get(0).scrollHeight });
+  function buildHTML(message, name){
+    if (!message.image.url) {
+      content = `<p class="talk__text">${message.text}</p>`
+    } else {
+      content = `
+        <p class="talk__text">
+          <img height="150" src="${message.image.url}">
         </p>
-    `
-    var message = `
+      `
+    }  
+
+    var message =`
       <div class="talk">
-        <p class="talk__sender">${message.user_id}</p>
-        <p class="talk__send_at">${messge.created_at}</p>
-    ` + message.image.length > 0 ? image : text + `</div> `
+        <p class="talk__sender">${name}</p>
+        <p class="talk__send_at">${message.created_at}</p>
+        ${content}
+      </div>  
+    `
 
     return message;
   }
@@ -18,16 +25,26 @@ $(function(){
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var form_data = new FormData(this);
+    var url = $(this).attr('action')
 
     $.ajax({
-      url: $(this).attr('action'),
+      url: url,
       type: 'POST',
       data : form_data,
       dataType: 'json',
       processData: false,
       contentType: false
     })
-    .done({})
-    .fail({})
+    .done(function(data){
+      var name = $('#current_user_name').val();
+      var html = buildHTML(data, name);
+      $('.talk__board').append(html);
+      $('#message_text').val('');
+      $('.talk__board').animate({ scrollTop: $('.talk__board').get(0).scrollHeight });
+    })
+    .fail(
+      function(){
+        alert('error');
+    })
   });
 });

@@ -24,4 +24,5 @@
       = f.label :image, class: "talk__form__image-label" do
         %i.fa.fa-picture-o
         = f.file_field :image, class: "talk__form__image-label__image"
-      = f.submit "Send", class: "talk__form__submit"    
+      = f.submit "Send", class: "talk__form__submit", data: { disable_with: false }
+    = hidden_field :current_user, :name
