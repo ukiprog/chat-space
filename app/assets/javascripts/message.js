@@ -2,7 +2,7 @@ $(function(){
   $('.talk__board').animate({ scrollTop: $('.talk__board').get(0).scrollHeight });
   function buildHTML(message, name){
     if (!message.image.url) {
-      content = `<p class="talk__text">${message.text}</p>`
+      content = '' 
     } else {
       content = `
         <p class="talk__text">
@@ -15,6 +15,7 @@ $(function(){
       <div class="talk">
         <p class="talk__sender">${name}</p>
         <p class="talk__send_at">${message.created_at}</p>
+        <p class="talk__text">${message.text}</p>
         ${content}
       </div>  
     `
@@ -40,6 +41,7 @@ $(function(){
       var html = buildHTML(data, name);
       $('.talk__board').append(html);
       $('#message_text').val('');
+      $('#message_image').val('');
       $('.talk__board').animate({ scrollTop: $('.talk__board').get(0).scrollHeight });
     })
     .fail(
