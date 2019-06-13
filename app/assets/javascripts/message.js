@@ -40,8 +40,7 @@ $(function(){
       var name = $('#current_user_name').val();
       var html = buildHTML(data, name);
       $('.talk__board').append(html);
-      $('#message_text').val('');
-      $('#message_image').val('');
+      $('#new_message').get(0).reset()
       $('.talk__board').animate({ scrollTop: $('.talk__board').get(0).scrollHeight });
     })
     .fail(
