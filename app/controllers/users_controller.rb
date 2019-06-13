@@ -7,6 +7,14 @@ class UsersController < ApplicationController
     current_user.update(user_params)
   end
 
+  def index
+    @users = User.where('name like ?', "#{params[:keyword]}%" ) 
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   private
   def user_params
     params['user'].permit(:name, :email)
