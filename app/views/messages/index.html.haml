@@ -13,15 +13,15 @@
         .talk 
           %p.talk__sender= message.user.name
           %p.talk__send_at= message.created_at.in_time_zone("Tokyo").strftime("%Y/%m/%d(%a) %H:%M:%S")
+          %p.talk__text= message.text
           - if message.image.length > 0
             %p.talk__text
               = image_tag message.image, height: "150"
-          - else
-            %p.talk__text= message.text
 
     = form_for [@group, @message], :url => {:action => 'create'} do |f|
       = f.text_field :text, class: "talk__form__text", placeholder: "type text"
       = f.label :image, class: "talk__form__image-label" do
         %i.fa.fa-picture-o
         = f.file_field :image, class: "talk__form__image-label__image"
-      = f.submit "Send", class: "talk__form__submit"    
+      = f.submit "Send", class: "talk__form__submit", data: { disable_with: false }
+    = hidden_field :current_user, :name
