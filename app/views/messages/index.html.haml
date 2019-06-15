@@ -6,7 +6,7 @@
       .talk__header__info
         .talk__header__info__group= @group.name
         .talk__header__info__member= "Member : #{@members}"
-      = link_to "Edit", "groups/#{@group.id}/edit", class: "talk__header__edit"
+      = link_to "Edit", edit_group_path(@group.id), class: "talk__header__edit"
     
     .talk__board
       - @messages.each do |message|

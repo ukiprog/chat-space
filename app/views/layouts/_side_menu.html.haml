@@ -3,8 +3,8 @@
     %p.account__name 
       = current_user.name
     %p.account__icon
-      = link_to "", "/groups/new", class: "fa fa-edit icon-white"
-      = link_to "", "/users/edit", class: "fa fa-cog icon-white"
+      = link_to "", new_group_path, class: "fa fa-edit icon-white"
+      = link_to "", edit_user_path(current_user.id), class: "fa fa-cog icon-white"
 
   .group__list
     - groups.each do |group|
