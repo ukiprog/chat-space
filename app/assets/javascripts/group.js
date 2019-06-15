@@ -1,4 +1,8 @@
 $(function(){
+  $('.user-search-remove').click(function(){
+    $(this).parent().remove();
+  });
+
   function buildUserElem(user) {
     var elem = `
       <div class="chat-group-user clearfix">
