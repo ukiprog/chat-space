@@ -1,8 +1,7 @@
 $(function(){
   $('.talk__board').animate({ scrollTop: $('.talk__board').get(0).scrollHeight });
 
-  // メッセージ送信　非同期通信
-  function buildHTML(message, name){
+  function buildHTML(message){
     if (!message.image.url) {
       var content = '' 
     } else {
@@ -25,6 +24,7 @@ $(function(){
     return message;
   }
 
+  // メッセージ送信　非同期通信
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var form_data = new FormData(this);
@@ -39,8 +39,7 @@ $(function(){
       contentType: false
     })
     .done(function(data){
-      var name = $('#current_user_name').val();
-      var html = buildHTML(data, name);
+      var html = buildHTML(data);
       $('.talk__board').append(html);
       $('#new_message').get(0).reset()
       $('.talk__board').animate({ scrollTop: $('.talk__board').get(0).scrollHeight });
@@ -52,29 +51,6 @@ $(function(){
   });
 
   // 最新メッセージの取得
-  function buildMessageHTML(message){
-    if (!message.image.url) {
-      var content = '' 
-    } else {
-      var content = `
-        <p class="talk__text">
-          <img height="150" src="${message.image.url}">
-        </p>
-      `
-    }  
-
-    var message =`
-      <div class="talk" data-message-group-id="${message.group_id}" data-message-id="${message.id}">
-        <p class="talk__sender">${message.user_name}</p>
-        <p class="talk__send_at">${message.created_at}</p>
-        <p class="talk__text">${message.text}</p>
-        ${content}
-      </div>  
-    `
-
-    return message;
-  }
-
   var reloadMessages = function() {
     console.log('prepair');
     var last_message_id = $('.talk:last').attr('data-message-id');
@@ -88,7 +64,7 @@ $(function(){
     .done(function(data) {
       console.log(data);
       data.forEach(function(message) {
-        var html = buildMessageHTML(message);
+        var html = buildHTML(message);
         $('.talk__board').append(html);
         $('.talk__board').animate({ scrollTop: $('.talk__board').get(0).scrollHeight });
         reloadMessages();
@@ -99,6 +75,5 @@ $(function(){
     });
   };
 
-  // setInterval(reloadMessages, 5000);
-  $('.talk__header__info').click(function(){reloadMessages()});
+  setInterval(reloadMessages, 5000);
 });
