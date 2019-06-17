@@ -14,8 +14,8 @@ $(function(){
     }  
 
     var message =`
-      <div class="talk">
-        <p class="talk__sender">${name}</p>
+      <div class="talk" data-message-group-id="${message.group_id}" data-message-id="${message.id}">
+        <p class="talk__sender">${message.user_name}</p>
         <p class="talk__send_at">${message.created_at}</p>
         <p class="talk__text">${message.text}</p>
         ${content}
@@ -64,7 +64,7 @@ $(function(){
     }  
 
     var message =`
-      <div class="talk">
+      <div class="talk" data-message-group-id="${message.group_id}" data-message-id="${message.id}">
         <p class="talk__sender">${message.user_name}</p>
         <p class="talk__send_at">${message.created_at}</p>
         <p class="talk__text">${message.text}</p>
@@ -91,6 +91,7 @@ $(function(){
         var html = buildMessageHTML(message);
         $('.talk__board').append(html);
         $('.talk__board').animate({ scrollTop: $('.talk__board').get(0).scrollHeight });
+        reloadMessages();
       });
     })
     .fail(function() {
@@ -98,5 +99,6 @@ $(function(){
     });
   };
 
-  setInterval(reloadMessages, 5000);
+  // setInterval(reloadMessages, 5000);
+  $('.talk__header__info').click(function(){reloadMessages()});
 });

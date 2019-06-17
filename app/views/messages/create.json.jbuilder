@@ -4,3 +4,4 @@ json.user_id  @message.user_id
 json.group_id  @message.group_id
 json.created_at  @message.created_at.in_time_zone("Tokyo").strftime("%Y/%m/%d(%a) %H:%M:%S")
 json.id @message.id
+json.user_name @message.user.name
