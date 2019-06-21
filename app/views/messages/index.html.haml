@@ -10,7 +10,7 @@
     
     .talk__board
       - @messages.each do |message|
-        .talk 
+        .talk{ data: { 'message-id': message.id , 'message-group-id': message.group_id } }
           %p.talk__sender= message.user.name
           %p.talk__send_at= message.created_at.in_time_zone("Tokyo").strftime("%Y/%m/%d(%a) %H:%M:%S")
           %p.talk__text= message.text
