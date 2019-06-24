@@ -1,7 +1,6 @@
 #サーバ上でのアプリケーションコードが設置されているディレクトリを変数に入れておく
 #app_path = File.expand_path('../../../', __FILE__)
 app_path = "/var/www/chat-space"
-ENV['BUNDLE_GEMFILE'] = app_path + "/current/Gemfile"
 
 #アプリケーションサーバの性能を決定する
 worker_processes 2
@@ -34,6 +33,7 @@ check_client_connection false
 run_once = true
 
 before_fork do |server, worker|
+  ENV['BUNDLE_GEMFILE'] = app_path + "/current/Gemfile"
   defined?(ActiveRecord::Base) &&
     ActiveRecord::Base.connection.disconnect!
 
