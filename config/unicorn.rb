@@ -33,6 +33,7 @@ check_client_connection false
 run_once = true
 
 before_fork do |server, worker|
+  binding.pry
   ENV['BUNDLE_GEMFILE'] = app_path + "/current/Gemfile"
   defined?(ActiveRecord::Base) &&
     ActiveRecord::Base.connection.disconnect!
