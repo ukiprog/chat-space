@@ -52,7 +52,6 @@ $(function(){
 
   // 最新メッセージの取得
   var reloadMessages = function() {
-    console.log('prepair');
     var last_message_id = $('.talk:last').attr('data-message-id');
     var group_id = $('.talk:last').attr('data-message-group-id');
     $.ajax({
@@ -62,7 +61,6 @@ $(function(){
       data: {message_id: last_message_id, group_id: group_id }
     })
     .done(function(data) {
-      console.log(data);
       data.forEach(function(message) {
         var html = buildHTML(message);
         $('.talk__board').append(html);
@@ -71,7 +69,7 @@ $(function(){
       });
     })
     .fail(function() {
-      console.log('error');
+      alert('error');
     });
   };
 
