@@ -16,6 +16,9 @@ set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :keep_releases, 5
 
+# secrets.yml用のシンボリックリンクを追加
+set :linked_files, %w{ config/secrets.yml }
+
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
   task :restart do
@@ -41,9 +44,6 @@ set :default_env, {
   AWS_ACCESS_KEY_ID: ENV["AWS_ACCESS_KEY_ID"],
   AWS_SECRET_ACCESS_KEY: ENV["AWS_SECRET_ACCESS_KEY"]
 }
-
-# secrets.yml用のシンボリックリンクを追加
-set :linked_files, %w{ config/secrets.yml }
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
